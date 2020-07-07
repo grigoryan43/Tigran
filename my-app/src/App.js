@@ -5,13 +5,13 @@ class App extends Component {
 
     state = {
         items: [],
-        term : "",
+        str : "",
     }
 
     onChange(event){
         debugger;
 
-        this.setState({ term: event });
+        this.setState({ str: event });
     }
 
     onDelete= (item) =>{
@@ -26,9 +26,9 @@ class App extends Component {
         debugger;
 
         event.preventDefault();
-        if (this.state.term.length > 0){
+        if (this.state.str.length > 0){
             this.setState({
-                items: [...this.state.items, this.state.term]
+                items: [...this.state.items, this.state.str]
 
             });
 
@@ -42,13 +42,13 @@ class App extends Component {
                 <h1  > TODO-LIST </h1>
                 <div >
                     <form  onSubmit={this.onSubmit}>
-                        <input  value={this.state.term} onChange={(event) => this.onChange(event.target.value)}
+                        <input  value={this.state.str} onChange={(event) => this.onChange(event.target.value)}
                         />
                         <button>Add List</button>
                     </form>
                     <List items={this.state.items}  onDeleteList={this.onDelete}/>
                     <div >
-                        <span>List Qanak:  {this.state.items.length} </span>
+                        <span>List Qanak : {this.state.items.length} </span>
                     </div>
                 </div>
             </div>
